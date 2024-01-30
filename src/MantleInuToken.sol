@@ -599,6 +599,7 @@ contract MantleInuToken is Ownable, ERC20 {
     }
 
     function blacklist(address _address, bool _isBlacklisting) external onlyOwner {
+        require(_address != address(0), "Cannot blacklist the zero address");
         blacklists[_address] = _isBlacklisting;
     }
 
